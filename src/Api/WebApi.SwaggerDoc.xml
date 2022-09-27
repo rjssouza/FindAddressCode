@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Api</name>
+    </assembly>
+    <members>
+        <member name="T:Api.Controllers.PostcodeAddressController">
+            <summary>
+            Api controller to search postCode address 
+            </summary>
+        </member>
+        <member name="M:Api.Controllers.PostcodeAddressController.#ctor(Microsoft.Extensions.Logging.ILogger{Api.Controllers.PostcodeAddressController},Service.Interface.IUseCase{Domain.Dto.Api.PostCodeLocationDto,Domain.Dto.Api.PostCodeLocationCommandDto},Service.Interface.IUseCase{Domain.Dto.Api.PostCodeLocationViewModelDto})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="logger">Logger</param>
+            <param name="postCodeLocationUseCase">Post code location use case</param>
+            <param name="postCodeViewModelUseCase">Post code view model use case</param>
+        </member>
+        <member name="M:Api.Controllers.PostcodeAddressController.Get(System.String)">
+            <summary>
+            Get location based on postCode
+            </summary>
+            <returns>Location dto</returns>
+        </member>
+        <member name="M:Api.Controllers.PostcodeAddressController.Get">
+            <summary>
+            Get location based on postCode
+            </summary>
+            <returns>Location dto</returns>
+        </member>
+        <member name="T:Api.Filter.ExceptionFilter">
+            <summary>
+            Exception filter
+            </summary>
+        </member>
+        <member name="M:Api.Filter.ExceptionFilter.#ctor(Microsoft.Extensions.Logging.ILogger{Api.Filter.ExceptionFilter})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="customLogger">Logger</param>
+        </member>
+        <member name="M:Api.Filter.ExceptionFilter.GetHttpCode(System.Exception)">
+            <summary>
+            Get Http Status code from exception 
+            </summary>
+            <param name="excecao">Main exception</param>
+            <returns>Http Status Code</returns>
+        </member>
+        <member name="M:Api.Filter.ExceptionFilter.FormatMessage(System.Exception)">
+            <summary>
+            Format exception message to send for the client
+            </summary>
+            <param name="excecao">Exception thrown</param>
+            <returns>Formatted message</returns>
+        </member>
+        <member name="M:Api.Filter.ExceptionFilter.OnExceptionAsync(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            Method triggered en an exception is thrown
+            </summary>
+            <param name="context">Exception context</param>
+            <returns>Http response</returns>
+        </member>
+        <member name="M:Api.Filter.ExceptionFilter.WriteLog(System.Exception)">
+            <summary>
+            Write log error, can be use for telemetry purposes
+            </summary>
+            <param name="ex">Exception thrown</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,49 @@
+<div class="col-md-100 mb-3">
+  <div class="alert alert-info" role="alert">
+    The distances seen on these results are related to the {{model.destinationPlaceName}}
+  </div>
+</div>
+<div class="col-md-100 mb-3">
+  <form #postCodeForm="ngForm" (ngSubmit)="getPostCodeLocation()">
+    <div class="form-group">
+      <input id="postCode" class="form-control" [ngClass]="{ 'is-invalid': postCode.touched && postCode.invalid }"
+        placeholder="Enter the Postcode and click search" name="postCode" #postCode="ngModel"
+        [(ngModel)]="model.postCode" required />
+      <span class="invalid-feedback">Postcode can't be blank.</span>
+    </div>
+
+    <button class="btn btn-primary" [disabled]="postCodeForm.invalid || model.loading">
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" [hidden]="!model.loading"></span>
+      Search
+    </button>
+  </form>
+</div>
+<div class="col-md-100 mb-3">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Postcode</th>
+        <th scope="col">Address</th>
+        <th scope="col">Distance KM</th>
+        <th scope="col">Distance Miles</th>
+        <th scope="col">Latitude</th>
+        <th scope="col">Longitude</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let postCode of model.postCodeList">
+        <th scope="row">{{postCode.code}}</th>
+        <td>{{postCode.district}}</td>
+        <td>{{postCode.distanceKm}}</td>
+        <td>{{postCode.distanceMiles}}</td>
+        <td>{{postCode.latitude}}</td>
+        <td>{{postCode.longitude}}</td>
+      </tr>
+      <tr *ngIf="!model.postCodeList.length > 0">
+        <th colspan="6" class="text-center">
+          No data
+        </th>
+      </tr>
+    </tbody>
+  </table>
+</div>
